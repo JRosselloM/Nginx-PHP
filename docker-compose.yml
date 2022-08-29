@@ -15,3 +15,18 @@ services:
     image: php:8-fpm
     volumes:
       - ./src:/var/www/html
+  # MYSQL
+  mysql:
+    image: mysql:8
+    ports:
+      - "3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=passwd
+      - MYSQL_PASSWORD=passwd
+      - MYSQL_DATABASE=users
+  adminer:
+    image: adminer:4
+    restart: always
+    ports:
+      - "8080:8080"
+    
