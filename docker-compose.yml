@@ -10,11 +10,15 @@ services:
       - ./src:/var/www/html
     links:
       - php-fpm
+    
   # PHP
   php-fpm:
     image: php:8-fpm
     volumes:
       - ./src:/var/www/html
+    build: 
+      context: .
+      dockerfile: Dockerfile
   # MYSQL
   mysql:
     image: mysql:8
